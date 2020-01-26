@@ -49,7 +49,7 @@ INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://saleor:saleor@localhost:5432/saleor", conn_max_age=600
+        default="postgres://admin:root@localhost:5432/saleor", conn_max_age=600
     )
 }
 
@@ -557,3 +557,9 @@ if (
         "Make sure you've added storefront address to ALLOWED_CLIENT_HOSTS "
         "if ENABLE_ACCOUNT_CONFIRMATION_BY_EMAIL is enabled."
     )
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
