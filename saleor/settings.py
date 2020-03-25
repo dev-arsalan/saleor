@@ -159,6 +159,8 @@ STATICFILES_FINDERS = [
 ]
 
 context_processors = [
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
     "django.template.context_processors.debug",
     "django.template.context_processors.media",
     "django.template.context_processors.static",
@@ -189,7 +191,10 @@ SECRET_KEY = "os.environ.get(SECRET_KEY)adfdsfdsfeqwsvfsgo56349068"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "saleor.core.middleware.discounts",
     "saleor.core.middleware.google_analytics",
     "saleor.core.middleware.country",
@@ -214,6 +219,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.auth",
     "django.contrib.postgres",
+    "django.contrib.messages",
     # Local apps
     "saleor.extensions",
     "saleor.account",
