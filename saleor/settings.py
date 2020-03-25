@@ -144,6 +144,10 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 MEDIA_URL = os.environ.get("MEDIA_URL", "/media/")
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
 STATIC_URL = os.environ.get("STATIC_URL", "/static/")
 STATICFILES_DIRS = [
@@ -202,6 +206,7 @@ INSTALLED_APPS = [
     # Django modules
     "django.contrib.contenttypes",
     "django.contrib.sites",
+    "django.contrib.admin",
     "django.contrib.staticfiles",
     "django.contrib.auth",
     "django.contrib.postgres",
@@ -237,6 +242,8 @@ INSTALLED_APPS = [
     "django_countries",
     "django_filters",
     "phonenumber_field",
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 
