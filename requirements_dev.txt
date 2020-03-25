@@ -175,3 +175,4 @@ weasyprint==50
 webencodings==0.5.1
 wrapt==1.11.2
 yarl==1.4.2; python_version >= "3.6"
+django-ckeditor==5.9.0

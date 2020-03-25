@@ -49,7 +49,7 @@ INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://admin:root@localhost:5432/saleor", conn_max_age=600
+        default="postgres://saleor:saleor@localhost:5432/saleor", conn_max_age=600
     )
 }
 
@@ -198,7 +198,11 @@ MIDDLEWARE = [
     "saleor.core.middleware.extensions",
     "saleor.graphql.middleware.jwt_middleware",
     "saleor.graphql.middleware.service_account_middleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 INSTALLED_APPS = [
     # External apps that need to go before django's
@@ -244,6 +248,7 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "ckeditor",
     "ckeditor_uploader",
+    "corsheaders"
 ]
 
 
@@ -398,7 +403,8 @@ MAX_CHECKOUT_LINE_QUANTITY = int(os.environ.get("MAX_CHECKOUT_LINE_QUANTITY", 50
 
 TEST_RUNNER = "tests.runner.PytestTestRunner"
 
-ALLOWED_HOSTS = get_list(os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1"))
+# ALLOWED_HOSTS = get_list(os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1"))
+ALLOWED_HOSTS = ['209.97.138.32', '127.0.0.1']
 ALLOWED_GRAPHQL_ORIGINS = os.environ.get("ALLOWED_GRAPHQL_ORIGINS", "*")
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
