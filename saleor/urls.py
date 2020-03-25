@@ -11,10 +11,13 @@ from .data_feeds.urls import urlpatterns as feed_urls
 from .graphql.api import schema
 from .graphql.views import GraphQLView
 from .product.views import digital_product
-from .seo.views import get_blog, list_blogs
+from saleor.blog.views import get_blog, list_blogs
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    path('blogs', list_blogs),
+    path('blogs/<slug>', get_blog, name='particular blog'),
     url(r"^graphql/", csrf_exempt(GraphQLView.as_view(schema=schema)), name="api"),
     url(r"^feeds/", include((feed_urls, "data_feeds"), namespace="data_feeds")),
     url(
@@ -22,9 +25,6 @@ urlpatterns = [
         digital_product,
         name="digital-product",
     ),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^blogs/', list_blogs),
-    path('blogs/<slug:slug>', get_blog, name='particular news'),
 ]
 
 if settings.DEBUG:

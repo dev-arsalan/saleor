@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 
-from saleor.seo.models import Blog
+from .models import Blog
 
 
 def get_blog(request, slug):

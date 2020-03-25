@@ -243,6 +243,7 @@ INSTALLED_APPS = [
     "saleor.warehouse",
     "saleor.webhook",
     "saleor.wishlist",
+    "saleor.blog",
     # External apps
     "versatileimagefield",
     "django_measurement",
@@ -258,6 +259,7 @@ INSTALLED_APPS = [
     "ckeditor_uploader",
     "corsheaders"
 ]
+
 
 
 ENABLE_DEBUG_TOOLBAR = get_bool_from_env("ENABLE_DEBUG_TOOLBAR", False)
