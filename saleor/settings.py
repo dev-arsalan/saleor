@@ -191,6 +191,7 @@ SECRET_KEY = "os.environ.get(SECRET_KEY)adfdsfdsfeqwsvfsgo56349068"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -217,6 +218,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.admin",
     "django.contrib.staticfiles",
+    "django.contrib.sessions",
     "django.contrib.auth",
     "django.contrib.postgres",
     "django.contrib.messages",
