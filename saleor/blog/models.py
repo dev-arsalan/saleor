@@ -54,7 +54,7 @@ class Blog(models.Model):
             'slug': self.slug,
             'title': self.title,
             'news_content': self.news_content,
-            'image': self.image.path if self.image else None,
+            'image': MEDIA_URL + self.image.name if self.image else None,
             'image_alt_text': self.image_alt_text,
             'created_at': self.created_at,
             'short_description': self.short_description,
