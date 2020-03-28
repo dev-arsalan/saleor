@@ -2,6 +2,9 @@ from django.db import models
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
+from saleor.settings import MEDIA_URL
+
+
 class Blog(models.Model):
     meta_robots = models.CharField(max_length=100, blank=True, null=True)
     meta_revisit = models.CharField(max_length=100, blank=True, null=True)
@@ -41,7 +44,7 @@ class Blog(models.Model):
             'slug': self.slug,
             'title': self.title,
             'content': self.news_content,
-            'image': '/media/' + self.image.name if self.image else None,
+            'image': MEDIA_URL + self.image.name if self.image else None,
             'image_alt_text': self.image_alt_text,
             'created_at': self.created_at
         }
